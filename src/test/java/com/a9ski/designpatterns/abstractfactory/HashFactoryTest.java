@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -45,10 +46,10 @@ public class HashFactoryTest extends AbstractHashTest {
 			hashes.add(sha256.createHash(data));
 		}
 		
-		hashes.sort(md5.createHashComparer());		
+		Collections.sort(hashes, md5.createHashComparer());		
 		checkSorting(hashes, "MD5");
 		
-		hashes.sort(sha256.createHashComparer());
+		Collections.sort(hashes, sha256.createHashComparer());
 		checkSorting(hashes, "SHA-256");		
 	}
 
